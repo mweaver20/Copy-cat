@@ -1,5 +1,6 @@
 import React from "react";
 import { styles } from "../styles.js";
+import PropTypes from 'prop-types';
 
 const images = {
   copycat:
@@ -10,10 +11,10 @@ const images = {
 
 export class CopyCat extends React.Component {
   render() {
-    const { copying, toggleTape, handleChange, value } = this.props;
+    const { copying, toggleTape, value, handleChange, name } = this.props;
     return (
       <div style={styles.divStyles}>
-        <h1 style={{ marginBottom: 80 }}>Copy Cat</h1>
+        <h1 style={{ marginBottom: 80 }}>Copy Cat { name || 'Tom' }</h1>
         <input type="text" value={value} onChange={handleChange} />
         <img
           style={styles.imgStyles}
@@ -21,7 +22,16 @@ export class CopyCat extends React.Component {
           src={copying ? images.copycat : images.quietcat}
           onClick={toggleTape}
         />
+        <p>{copying && value}</p>
       </div>
     );
   }
+}
+
+CopyCat.propTypes ={
+  copying: PropTypes.bool.isRequired,
+  toggleTape: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
 }

@@ -13,7 +13,7 @@ class CopyCatContainer extends React.Component {
     super(props);
     this.state = { 
       copying: true,
-      input: ''
+      input: '',
     };
 
     this.toggleTape = this.toggleTape.bind(this);
