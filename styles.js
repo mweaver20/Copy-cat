@@ -26,8 +26,9 @@ const divStyles = {
 
 const imgStyles = {
   marginTop: marginTop,
-  width: width,
-  maxHeight: 400
+  width: 'auto',
+  maxHeight: '400px',
+
 };
 
 export const styles = {
