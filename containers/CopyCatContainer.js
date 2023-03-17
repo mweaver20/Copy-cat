@@ -11,23 +11,35 @@ const images = {
 class CopyCatContainer extends React.Component {
     constructor(props) {
     super(props);
-
     this.state = { 
-      copying: true
+      copying: true,
+      input: ''
     };
 
     this.toggleTape = this.toggleTape.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({input: e.target.value});
   }
 
   toggleTape() {
-    this.setState({copying: !this.state.copying})
+    this.setState({copying: !this.state.copying});
   }
   
   render() {
     const copying = this.state.copying;
     const toggleTape = this.toggleTape
     
-    return <CopyCat copying={copying} toggleTape={toggleTape}/>
+    return (
+      <CopyCat 
+        copying={copying} 
+        toggleTape={toggleTape}
+        handleChange={this.handleChange}
+        input={this.state.input}
+      />
+    );
   };
 }
 
