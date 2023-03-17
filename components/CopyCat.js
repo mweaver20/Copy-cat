@@ -1,31 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const images = {
   copycat: 'https://content.codecademy.com/courses/React/react_photo_copycat.png',
   quietcat: 'https://content.codecademy.com/courses/React/react_photo_quietcat.png'
 };
 
+export class CopyCat extends React.Component {
 
-class CopyCat extends React.Component {
-    constructor(props) {
-    super(props);
-
-    this.state = { 
-      copying: true
-    };
-
-    this.toggleTape = this.toggleTape.bind(this);
-  }
-
-  toggleTape() {
-    this.setState({copying: !this.state.copying})
-  }
-  
   render() {
-    const copying = this.state.copying;
-    const toggleTape = this.toggleTape
-    
+    const copying = this.props.copying;
+    const toggleTape = this.props.toggleTape
     return (
       <div>
         <h1>Copy Cat</h1>
@@ -39,5 +23,3 @@ class CopyCat extends React.Component {
   };
 }
 
-
-ReactDOM.render(<CopyCat />, document.getElementById('app'));
